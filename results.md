@@ -61,7 +61,7 @@ The simulations presented here are initial findings, primarily conducted on the 
 
 **Implication:** This validation confirms that the Multiplicative Fidelity Law provides a reliable method to assess simulation accuracy even when exact results are unknown.
 
-![Estimated vs. True Infidelity Validation](Results/exactvsinexactinfidelity.png)
+![Estimated vs. True Infidelity Validation](Results/exactvsineaxctinfidelity.png)
 
 ### 5. Performance of Inexact Simulations (Estimated Infidelity)
 
