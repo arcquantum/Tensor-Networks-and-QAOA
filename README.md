@@ -16,8 +16,3 @@ For a detailed overview of the project, including key results and future outlook
 ## Acknowledgments
 
 This project is part of a research internship conducted at the Center for Optical Quantum Technologies, University of Hamburg, Germany.
-
-Special thanks to:
-
-- Prof. Dr. Peter Schmelcher (Supervisor, Universität Hamburg)
-- Mr. Zeki Zeybek (PhD Student, Universität Hamburg)
