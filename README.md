@@ -1,7 +1,6 @@
 \# Tensor Networks and QAOA: Classical Simulation of Quantum Circuits
 
 
-
 This repository houses all materials related to the classical simulation of quantum circuits using Tensor Networks, as of now with a specific focus on Matrix Product States (MPS) and Quantum Approximate Optimization Algorithms (QAOA).
 
 
