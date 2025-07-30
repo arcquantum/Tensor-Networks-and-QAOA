@@ -12,7 +12,3 @@ The project is organized into the following directories:
 - **[Results](Results)**: Holds all generated plots and data from the simulations, which are visualized and discussed in the dedicated results overview.
 
 For a detailed overview of the project, including key results and future outlook, please see the [Project Details & Results document](results.md).
-
-## Acknowledgments
-
-This project is part of a research internship conducted at the Center for Optical Quantum Technologies, University of Hamburg, Germany.
