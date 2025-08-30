@@ -11,4 +11,4 @@ The project is organized into the following directories:
 - **[Reports and Presentations](Reports%20and%20Presentations)**: Stores the on-site internship report (PDF) and presentation slides (PDF).
 - **[Results](Results)**: Holds all generated plots and data from the simulations, which are visualized and discussed in the dedicated results overview.
 
-For a detailed overview of the project, including key results and future outlook, please see the [Project Details & Results document](results.md).
+For a detailed overview of the project, including key results and future outlook, please see the [Project Details & Results document](Results/results.md).
