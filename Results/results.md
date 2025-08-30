@@ -22,7 +22,7 @@ The simulations presented here are initial findings, primarily conducted on the 
 
 | Max Bond Dimension vs. Number of Nodes (N) | Max Bond Dimension vs. QAOA Layers (p) |
 | :----------------------------------------: | :------------------------------------: |
-| ![Max Bond Dimension vs. N](Results/exactvsn.png) | ![Max Bond Dimension vs. p](Results/exactvsp.png) |
+| ![Max Bond Dimension vs. N](exactvsn.png) | ![Max Bond Dimension vs. p](exactvsp.png) |
 
 ### 2. Entanglement Growth: Exact vs. Compressed Simulation
 
@@ -32,7 +32,7 @@ The simulations presented here are initial findings, primarily conducted on the 
 
 | Max Bond Dimension vs. Number of Nodes (N) | Max Bond Dimension vs. QAOA Layers (p) |
 | :----------------------------------------: | :------------------------------------: |
-| ![Exact vs. Compressed Bond Dim vs N](Results/exactcompbondvsN.png) | ![Exact vs. Compressed Bond Dim vs P](Results/exactcompbondvsP.png) |
+| ![Exact vs. Compressed Bond Dim vs N](exactcompbondvsN.png) | ![Exact vs. Compressed Bond Dim vs P](exactcompbondvsP.png) |
 
 ### 3. Infidelity Analysis: Exact Reference
 
@@ -49,7 +49,7 @@ The simulations presented here are initial findings, primarily conducted on the 
 
 | Infidelity vs. Number of Nodes (N) | Infidelity vs. QAOA Layers (p) |
 | :--------------------------------: | :----------------------------: |
-| ![Infidelity vs N Exact Reference](Results/infidelitycompexactvsN.png) | ![Infidelity vs P Exact Reference](Results/infidelitycompexactvsP.png) |
+| ![Infidelity vs N Exact Reference](infidelitycompexactvsN.png) | ![Infidelity vs P Exact Reference](infidelitycompexactvsP.png) |
 
 ### 4. Validating Inexact Fidelity Estimation
 
@@ -61,7 +61,7 @@ The simulations presented here are initial findings, primarily conducted on the 
 
 **Implication:** This validation confirms that the Multiplicative Fidelity Law provides a reliable method to assess simulation accuracy even when exact results are unknown.
 
-![Estimated vs. True Infidelity Validation](Results/exactvsineaxctinfidelity.png)
+![Estimated vs. True Infidelity Validation](exactvsineaxctinfidelity.png)
 
 ### 5. Performance of Inexact Simulations (Estimated Infidelity)
 
@@ -73,7 +73,7 @@ The simulations presented here are initial findings, primarily conducted on the 
 
 | Estimated Infidelity vs. Number of Nodes (N) | Estimated Infidelity vs. QAOA Layers (p) |
 | :------------------------------------------: | :--------------------------------------: |
-| ![Estimated Infidelity vs N](Results/inexactinfidelityvsN.png) | ![Estimated Infidelity vs P](Results/inexactinfidelityvsP.png) |
+| ![Estimated Infidelity vs N](inexactinfidelityvsN.png) | ![Estimated Infidelity vs P](inexactinfidelityvsP.png) |
 
 ## Current Status & Next Steps (Future Work)
 
