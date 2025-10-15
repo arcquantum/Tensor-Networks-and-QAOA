@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository documents ongoing work and initial findings from a research internship focused on the classical simulation of quantum circuits using Tensor Networks, specifically Matrix Product States (MPS) as of now. The primary objective is to explore and advance the capabilities of TN-based methods for simulating Quantum Approximate Optimization Algorithms (QAOA) for combinatorial optimization problems and to investigate Quantum Supremacy. The Python framework used for these simulations is under continuous development and refinement.
+This repository documents ongoing work and findings from a research internship focused on the classical simulation of quantum circuits using Tensor Networks, specifically Matrix Product States (MPS) as of now. The primary objective is to explore and advance the capabilities of TN-based methods for simulating Quantum Approximate Optimization Algorithms (QAOA) for combinatorial optimization problems and to investigate Quantum Supremacy. The Python framework used for these simulations is under continuous development and refinement.
 
 ## Project Scope & Methods
 
@@ -12,7 +12,7 @@ The project involves:
 - **Python Framework:** Development of a modular Python framework leveraging NumPy for efficient tensor operations, implementing core MPS functionalities (canonicalization, gate application, utilities) and QAOA simulation routines.
 - **Simulation Approaches:** Implementation and analysis of both exact and inexact (SVD and Variational) compression strategies.
 
-## Key Initial Results
+## Key Results from Stage 1
 
 The simulations presented here are initial findings, primarily conducted on the Linear Max-Cut problem, mapping it through QUBO to an Ising Hamiltonian.
 
@@ -75,19 +75,57 @@ The simulations presented here are initial findings, primarily conducted on the 
 | :------------------------------------------: | :--------------------------------------: |
 | ![Estimated Infidelity vs N](inexactinfidelityvsN.png) | ![Estimated Infidelity vs P](inexactinfidelityvsP.png) |
 
+## Key Results from Stage 2
+
+This stage focused on validating the simulation framework and benchmarking its performance on complex, non-linear graph topologies. The simulation loop was implemented in a robust DMRG-style "evolve-then-compress" cycle, where variational compression is applied after each Trotter sub-layer. Swapping and unswapping correctly becomes very important for non-linear graphs.
+
+### 1. Infidelity Scaling for Different Topologies
+
+**Goal:** To provide detailed data on how simulation error scales with system size (N) and circuit depth (p) for a fixed, small bond dimension (D_max=4).
+
+**Findings:**
+
+For the Linear Chain, error is near-zero until a critical depth (p=3) or size, where it jumps to a saturation point (an "entanglement cliff").
+
+For the Complete Graph, error starts high and grows steadily with each added layer or node, showing the high and immediate cost of simulating complex connectivity.
+
+| Estimated Infidelity vs. Number of Nodes (N) | Estimated Infidelity vs. QAOA Layers (p) |
+| :------------------------------------------: | :--------------------------------------: |
+| ![Estimated Infidelity vs N](LinearChain_Infidelity_vs_Size.png) | ![Estimated Infidelity vs P](LinearChain_Infidelity_vs_Depth.png) |
+| ![Estimated Infidelity vs N](CompleteGraph_Infidelity_vs_Size.png) | ![Estimated Infidelity vs P](CompleteGraph_Infidelity_vs_Depth.png) |
+
+### 2. Validation: The Multiplicative Fidelity Law Holds
+Goal: To confirm that our internal error estimation is reliable, even for highly entangling circuits.
+
+**Method:** On a small but complex complete graph, we compared our estimated_infidelity (from the multiplicative law) against the true_infidelity (from direct overlap with a full, exact simulation).
+
+**Finding:** The two curves are nearly identical, providing strong evidence that our fidelity estimation is highly accurate. This successfully reproduces the principle for QAOA that was demonstrated for random circuits before.
+
+![Estimated vs. True Infidelity Validation](Validation_True_vs_Estimated_Infidelity.png)
+
+#### 3. Main Result: The "Fidelity Floor" and the Limit of Simulation
+
+**Goal:** To demonstrate how simulation accuracy is fundamentally limited by the problem's connectivity.
+
+**Method:** We plotted the infidelity vs. computational resources (χ) for two distinct topologies:
+
+Linear Chain (N=12, p=8): An "easy" case where the 1D MPS structure matches the problem.
+
+Complete Graph (N=8, p=2): A "hard" case with all-to-all connectivity, requiring many SWAP operations.
+
+**Finding:** For the linear chain, increasing χ leads to exponentially better accuracy. For the complete graph, the accuracy quickly hits a "fidelity floor" ($\epsilon_{\infty}$), and providing more resources yields diminishing returns.
+
+![Error Floor](Comparison_FidelityFloor_vs_BondDimension.png)
+
 ## Current Status & Next Steps (Future Work)
 
-This project has established a strong foundation in MPS-based quantum circuit simulation. The Python framework is functional and has yielded initial insights into QAOA performance.
+The Python framework is now functional for simulating QAOA on general graphs and has yielded key insights into the relationship between problem topology and classical simulation difficulty.
 
 Our future work is planned to include:
 
 - **Extend to Tree Tensor Networks (TTNs):**
   - Explore TTNs as a more flexible tensor network representation, especially for circuits with hierarchical or non-local entanglement patterns. This is a crucial next step, building on existing research within our group.
   - TTNs offer potential advantages for simulating circuits with more complex connectivity than 1D chains.
-
-- **Advanced QAOA Applications:**
-  - Simulate QAOA on more complex graph structures and optimization problems.
-  - Investigate the impact of different mixer Hamiltonians on performance.
 
 - **Performance Optimization:**
   - Optimize Python code for speed (e.g., JIT compilation, GPU acceleration).
